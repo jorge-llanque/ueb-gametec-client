@@ -1,8 +1,20 @@
+import { Space } from 'antd'
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import { GamesNavbar } from '../../components'
 
 export const Games = () => {
   return (
-    <div>Games</div>
+    <Space
+      direction="vertical"
+      size="large"
+      style={{
+        display: 'flex',
+      }}
+    >
+      <GamesNavbar />
+      <Outlet />
+    </Space>
   )
 }
 
