@@ -4,6 +4,10 @@ import { TOP_TABS_CONFIG } from '../../configs';
 
 const { Header: HeaderAntd } = Layout;
 
+/**
+ * Header Component with Top Tabs.
+ * @returns Header Component
+ */
 export const Header = () => {
   const [topTabs, setTopTabs] = useState([])
 

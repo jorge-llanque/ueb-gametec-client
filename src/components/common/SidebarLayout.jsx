@@ -15,9 +15,9 @@ export const SidebarLayout = () => {
   useEffect(() => {
     setTabs(SIDEBAR_TABS_CONFIG.map((tab, idx) => {
       return {
-        label: <Link to={tab.link}>{tab.text}</Link>,
+        label: <Link style={{ color: "#fff" }} to={tab.link}>{tab.text}</Link>,
         key: idx,
-        link: tab.link
+        link: tab.link,
       }
     }))
   }, [])
@@ -44,9 +44,8 @@ export const SidebarLayout = () => {
       <Menu
         mode='inline'
         style={{
-          backfaceVisibility: "hidden",
-          backgroundColor: "transparent",
-          color: "white",
+          backgroundColor: "#3a2fb1",
+          color: "#fff",
           border: "none",
         }}
         items={tabs}

@@ -7,6 +7,7 @@ import {
   GamesAll,
   GamesAvailable,
   GamesRelease,
+  GroupForm,
   Participants,
   Schedules
 } from './pages';
@@ -25,6 +26,7 @@ export const AppRoutes = () => {
             <Route path={APP_ROUTES.GAMES_RELEASES} element={<GamesRelease />} />
           </Route>
           <Route path={APP_ROUTES.PARTICIPANTS} element={<Participants />} />
+          <Route path={APP_ROUTES.PARTICIPANTS_GROUP_NEW} element={<GroupForm />} />
           <Route path={APP_ROUTES.SCHEDULING} element={<Schedules />} />
           <Route path={APP_ROUTES.CONTROLLERS} element={<Controls />} />
         </Route>

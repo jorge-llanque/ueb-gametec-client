@@ -1,0 +1,1 @@
+export {PEOPLE} from './mocks/peopleDumb';

@@ -6,6 +6,7 @@ export { GamesRelease } from './Games/GamesRelease';
 
 // Participants
 export { Participants } from './Participants/Participants';
+export { GroupForm } from './Participants/GroupForm';
 
 // Controls
 export { Controls } from './Controls/Controls';

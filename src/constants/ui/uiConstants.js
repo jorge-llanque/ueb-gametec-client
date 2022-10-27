@@ -9,7 +9,7 @@ export const UI = {
     GAMES: 'Juegos',
     PARTICIPANTS: 'Participantes',
     SCHEDULING: 'Programaciones',
-    CONTROLLERS: 'Controladores',
+    CONTROLLERS: 'Controles',
     REPORTS: 'Reportes',
     SETTINGS: 'Configuraciones',
   },
