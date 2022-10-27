@@ -3,6 +3,7 @@ export { Games } from './Games/Games';
 export { GamesAll } from './Games/GamesAll';
 export { GamesAvailable } from './Games/GamesAvailable';
 export { GamesRelease } from './Games/GamesRelease';
+export { GameDetails } from './Games/GameDetails';
 
 // Participants
 export { Participants } from './Participants/Participants';

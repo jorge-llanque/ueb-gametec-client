@@ -26,7 +26,10 @@ export const Layout = () => {
       >
         <SidebarLayout/>
         <Content>
-          <div className='site-layout-content'>
+          <div 
+            className='site-layout-content'
+            style={{overflow: 'auto', height: '100%'}}
+            >
             <Outlet/>
           </div>
         </Content>

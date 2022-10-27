@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { EditOutlined, EllipsisOutlined, FolderOpenOutlined, PlayCircleOutlined, SettingOutlined } from '@ant-design/icons';
 import { GamesGrid } from '../../components'
+import { Button } from 'antd';
+import { Outlet, useNavigate, useParams } from 'react-router-dom';
 
 const images = [
   {
@@ -71,20 +73,50 @@ const images = [
   },
 ]
 
-const optionsList = [
-  <SettingOutlined key="setting" />,
-  <EditOutlined key="edit" />,
-  <EllipsisOutlined key="ellipsis" />,
-]
+
+
+
 
 export const GamesAvailable = () => {
   const [options, setOptions] = useState([]);
+  const navigate = useNavigate();
+  const { gameId } = useParams();
+
+  const shortcuts = [
+    <Button
+      icon={<PlayCircleOutlined />}
+      key='1'
+      size="small"
+      shape="round"
+      type="text"
+    >
+      Tutorial
+    </Button>,
+    <Button
+      icon={<FolderOpenOutlined />}
+      key='2'
+      size="small"
+      shape="round"
+      type="text"
+      onClick={() => navigate('1/details')}
+    >
+      Ver Detalles
+    </Button>
+  ]
 
   useEffect(() => {
-    setOptions(optionsList);
+    setOptions(shortcuts);
   }, [])
 
   return (
-    <GamesGrid gallery={images} details={options} />
+    <>
+      {
+        gameId ? (
+          <Outlet />)
+          : (
+            <GamesGrid gallery={images} details={options} />
+          )
+      }
+    </>
   )
 }

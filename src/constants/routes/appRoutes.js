@@ -7,6 +7,7 @@ export const APP_ROUTES = {
   GAMES: 'games',
   GAMES_ALL: 'all',
   GAMES_AVAILABLE: 'available',
+  GAME_DETAILS: ':gameId/details',
   GAMES_RELEASES: 'releases',
 
   PARTICIPANTS: 'participants',

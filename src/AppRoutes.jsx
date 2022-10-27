@@ -4,6 +4,7 @@ import { APP_ROUTES } from './constants';
 import {
   Controls,
   DefaultError,
+  GameDetails,
   Games,
   GamesAll,
   GamesAvailable,
@@ -24,7 +25,9 @@ export const AppRoutes = () => {
           <Route path={APP_ROUTES.GAMES} element={<Games />}>
             <Route index element={<GamesAll />} />
             <Route path={APP_ROUTES.GAMES_ALL} element={<GamesAll />} />
-            <Route path={APP_ROUTES.GAMES_AVAILABLE} element={<GamesAvailable />} />
+            <Route path={APP_ROUTES.GAMES_AVAILABLE} element={<GamesAvailable />}>
+              <Route path={APP_ROUTES.GAME_DETAILS} element={<GameDetails />} />
+            </Route>
             <Route path={APP_ROUTES.GAMES_RELEASES} element={<GamesRelease />} />
           </Route>
           <Route path={APP_ROUTES.PARTICIPANTS} element={<Participants />} />
