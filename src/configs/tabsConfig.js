@@ -74,19 +74,21 @@ export const SIDEBAR_TABS_CONFIG = [
 
 export const GAMES_TABS_CONFIG = [
   {
-    text: UI.GAMES_MENU_TITLES.ALL,
-    link: APP_ROUTES.GAMES_ALL,
-    active: true,
+    key: `games-${UI.GAMES_MENU_TITLES.ALL}`,
+    label: UI.GAMES_MENU_TITLES.ALL,
+    path: APP_ROUTES.GAMES_ALL,
     // resource and screenName properties are pending.
   },
   {
-    text: UI.GAMES_MENU_TITLES.AVAILABLE,
-    link: APP_ROUTES.GAMES_AVAILABLE,
+    key: `games-${UI.GAMES_MENU_TITLES.AVAILABLE}`,
+    label: UI.GAMES_MENU_TITLES.AVAILABLE,
+    path: APP_ROUTES.GAMES_AVAILABLE,
     // resource and screenName properties are pending.
   },
   {
-    text: UI.GAMES_MENU_TITLES.NEW_RELEASES,
-    link: APP_ROUTES.GAMES_RELEASES,
+    key: `games-${UI.GAMES_MENU_TITLES.NEW_RELEASES}`,
+    label: UI.GAMES_MENU_TITLES.NEW_RELEASES,
+    path: APP_ROUTES.GAMES_RELEASES,
     // resource and screenName properties are pending.
   },
 ]

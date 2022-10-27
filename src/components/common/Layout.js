@@ -1,4 +1,5 @@
-import { Outlet } from "react-router-dom";
+import {useEffect} from 'react'
+import { Outlet, useNavigate } from "react-router-dom";
 import { Layout as Template } from "antd"
 import {Header} from './Header';
 import SidebarLayout from "./SidebarLayout";
@@ -9,6 +10,10 @@ const { Content, Footer } = Template
  * @returns Layout component.
  */
 export const Layout = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate('/games/all');
+  },[])
   return (
     <Template className='layout'>
       <Header/>
