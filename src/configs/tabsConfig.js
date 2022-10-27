@@ -1,3 +1,4 @@
+import { GithubOutlined, TwitterOutlined } from "@ant-design/icons";
 import { APP_ROUTES, UI } from "../constants";
 
 /**
@@ -28,33 +29,45 @@ export const TOP_TABS_CONFIG = [
 
 export const SIDEBAR_TABS_CONFIG = [
   {
-    text: UI.SIDEBAR_MENU_TITLES.GAMES,
-    link: APP_ROUTES.GAMES,
+    key: `root-${UI.SIDEBAR_MENU_TITLES.GAMES}`,
+    label: UI.SIDEBAR_MENU_TITLES.GAMES,
+    path: APP_ROUTES.GAMES,
+    icon: <TwitterOutlined />
     // resource and screenName properties are pending.
   },
   {
-    text: UI.SIDEBAR_MENU_TITLES.PARTICIPANTS,
-    link: APP_ROUTES.PARTICIPANTS,
+    key: `root-${UI.SIDEBAR_MENU_TITLES.PARTICIPANTS}`,
+    label: UI.SIDEBAR_MENU_TITLES.PARTICIPANTS,
+    path: APP_ROUTES.PARTICIPANTS,
+    icon: <GithubOutlined />
     // resource and screenName properties are pending.
   },
   {
-    text: UI.SIDEBAR_MENU_TITLES.SCHEDULING,
-    link: APP_ROUTES.SCHEDULING,
+    key: `root-${UI.SIDEBAR_MENU_TITLES.SCHEDULING}`,
+    label: UI.SIDEBAR_MENU_TITLES.SCHEDULING,
+    path: APP_ROUTES.SCHEDULING,
+    icon: <TwitterOutlined />
     // resource and screenName properties are pending.
   },
   {
-    text: UI.SIDEBAR_MENU_TITLES.CONTROLLERS,
-    link: APP_ROUTES.CONTROLLERS,
+    key: `root-${UI.SIDEBAR_MENU_TITLES.CONTROLLERS}`,
+    label: UI.SIDEBAR_MENU_TITLES.CONTROLLERS,
+    path: APP_ROUTES.CONTROLLERS,
+    icon: <GithubOutlined />
     // resource and screenName properties are pending.
   },
   {
-    text: UI.SIDEBAR_MENU_TITLES.REPORTS,
-    link: APP_ROUTES.REPORTS,
+    key: `root-${UI.SIDEBAR_MENU_TITLES.REPORTS}`,
+    label: UI.SIDEBAR_MENU_TITLES.REPORTS,
+    path: APP_ROUTES.REPORTS,
+    icon: <TwitterOutlined />
     // resource and screenName properties are pending.
   },
   {
-    text: UI.SIDEBAR_MENU_TITLES.SETTINGS,
-    link: APP_ROUTES.HOME,
+    key: `root-${UI.SIDEBAR_MENU_TITLES.SETTINGS}`,
+    label: UI.SIDEBAR_MENU_TITLES.SETTINGS,
+    path: APP_ROUTES.HOME,
+    icon: <GithubOutlined />
     // resource and screenName properties are pending.
   },
 ]

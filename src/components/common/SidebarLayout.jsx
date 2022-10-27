@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Divider, Layout, Menu } from 'antd';
 import { SIDEBAR_TABS_CONFIG } from '../../configs';
-import { Link } from 'react-router-dom';
 
 const { Sider } = Layout;
 
@@ -10,17 +9,11 @@ const { Sider } = Layout;
  * @returns SidebarLayout component.
  */
 export const SidebarLayout = () => {
-  const [tabs, setTabs] = useState([])
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    setTabs(SIDEBAR_TABS_CONFIG.map((tab, idx) => {
-      return {
-        label: <Link style={{ color: "#fff" }} to={tab.link}>{tab.text}</Link>,
-        key: idx,
-        link: tab.link,
-      }
-    }))
-  }, [])
+  const handleNavigation = ({ key }) => {
+    navigate(SIDEBAR_TABS_CONFIG.find((tab) => tab.key === key).path);
+  }
 
   return (
     <Sider
@@ -48,7 +41,9 @@ export const SidebarLayout = () => {
           color: "#fff",
           border: "none",
         }}
-        items={tabs}
+        defaultSelectedKeys={[`${SIDEBAR_TABS_CONFIG[0].key}`]}
+        items={SIDEBAR_TABS_CONFIG}
+        onClick={handleNavigation}
       />
     </Sider>
   )

@@ -3,6 +3,7 @@ import { Layout } from './components';
 import { APP_ROUTES } from './constants';
 import {
   Controls,
+  DefaultError,
   Games,
   GamesAll,
   GamesAvailable,
@@ -17,7 +18,8 @@ export const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={APP_ROUTES.HOME} element={<Layout />}>
+        <Route path={APP_ROUTES.HOME} element={<Layout />} errorElement={<DefaultError />}>
+          <Route errorElement={<DefaultError />} />
           <Route index element={<Games />} />
           <Route path={APP_ROUTES.GAMES} element={<Games />}>
             <Route index element={<GamesAll />} />

@@ -13,3 +13,6 @@ export { Controls } from './Controls/Controls';
 
 // Schedules
 export { Schedules } from './Schedules/Schedules';
+
+// Errors
+export { DefaultError } from './Errors/DefaultError';
