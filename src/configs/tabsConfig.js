@@ -1,4 +1,5 @@
 import { GithubOutlined, TwitterOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 import { APP_ROUTES, UI } from "../constants";
 
 /**
@@ -26,6 +27,21 @@ export const TOP_TABS_CONFIG = [
     // resource and screenName properties are pending.
   },
 ];
+
+export const STUDENTS_TOP_TABS_CONFIG = [
+  {
+    key: "1",
+    label: "Matematicas",
+    link: APP_ROUTES.HOME,
+    // resource and screenName properties are pending.
+  },
+  {
+    key: "2",
+    label: "Lenguaje",
+    link: APP_ROUTES.HOME,
+    // resource and screenName properties are pending.
+  },
+]
 
 export const SIDEBAR_TABS_CONFIG = [
   {

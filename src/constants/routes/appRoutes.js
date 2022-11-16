@@ -14,4 +14,5 @@ export const APP_ROUTES = {
   PARTICIPANTS_GROUP_NEW: '/participants/group/new',
   SCHEDULING:'scheduling',
   CONTROLLERS: 'controllers',
+  LOGIN: 'login',
 }

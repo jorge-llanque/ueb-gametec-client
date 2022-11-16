@@ -13,7 +13,21 @@ export const Header = () => {
 
   useEffect(() => {
     // Validate permissions by role is pending.
-    setTopTabs(TOP_TABS_CONFIG.map((tab, idx) => ({ label: tab.text, key: idx })));
+
+    const listTopHeader = TOP_TABS_CONFIG.map((tab, idx) => ({ label: tab.text, key: idx }))
+
+    setTopTabs([
+      ...listTopHeader,
+      {
+        key: 'logout',
+        label: 'Cerrar Sesión',
+        onClick: () => {
+          localStorage.removeItem('token')
+          window.location.reload()
+        }
+      }
+    ])
+
   }, [])
   return (
     <HeaderAntd style={{ backgroundColor: "#3a2fb1" }}>

@@ -1,6 +1,9 @@
 import { PlayCircleOutlined } from '@ant-design/icons'
 import { Divider } from 'antd'
+import { useEffect, useState } from 'react'
 import { GamesGrid } from '../../components'
+import { Authorize } from '../../core'
+import { gamesService } from '../../services'
 
 const gameList = [
   {
@@ -154,11 +157,67 @@ const gameList = [
 
 
 export const GamesAll = () => {
+  const [pagination, setPagination] = useState({ pageSize: 10, page: 1 })
+  const [games, setGames] = useState([])
+  const [loading, setLoading] = useState(false)
+
+
+
+  useEffect(() => {
+
+    setLoading(true)
+    gamesService.getAll(pagination).then(data => {
+      const dataFormated = formatToShow(data.data)
+      setGames(dataFormated)
+      setLoading(false)
+    }).catch(err => {
+      console.log(err);
+      setLoading(false)
+    })
+
+  }, [])
+
+  const formatToShow = (groups) => {
+    let tree = groups.filter(group => {
+      if (group.subGroups.length > 0) {
+        group.subGroups = group.subGroups.filter(subGroup => {
+          if (subGroup.games.length > 0) {
+            return subGroup
+          }
+        })
+        if (group.subGroups.length > 0) {
+          return group
+        }
+      }
+    })
+
+    const mapped = tree[0].subGroups.map(subGroup => {
+      return {
+        group: subGroup.title,
+        games: subGroup.games.map(game => {
+          return {
+            img: {
+              url: game.multimedia.find(m => m.paR_SizeTypeId === 3).routeUrl,
+              alt: game.title,
+              style: {
+                height: 180,
+                objectFit: 'cover',
+              }
+            },
+            title: game.title,
+          }
+        })
+      }
+    });
+
+    console.log('tree', mapped);
+    return mapped
+  }
 
   return (
-    <div>
+    <>
       {
-        gameList.map((collection, idx) => {
+        games.map((collection, idx) => {
           return (
             <div key={idx}>
               <Divider orientation="left">{collection.group}</Divider>
@@ -167,6 +226,6 @@ export const GamesAll = () => {
           )
         })
       }
-    </div>
+    </>
   )
 }

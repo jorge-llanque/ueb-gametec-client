@@ -10,7 +10,12 @@ export const GamesGrid = ({ gallery, details }) => {
         <Col key={idx} span={6}>
           <Card
             hoverable
-            cover={<img alt={item.img.alt} src={item.img.url} style={item.img.style} />}
+            cover={
+              <img
+                alt={item.img.alt}
+                src={`https://drive.google.com/uc?export=view&id=${item.img.url}`}
+                style={item.img.style}
+              />}
             bodyStyle={{
               padding: 10,
               display: 'flex',
@@ -18,7 +23,7 @@ export const GamesGrid = ({ gallery, details }) => {
               alignItems: 'center',
               backgroundColor: '#ebebeb',
             }}
-            actions={details}
+            actions={item?.details}
           >
             <Card.Meta title={item.title} />
           </Card>

@@ -1,9 +1,18 @@
 import { Space } from 'antd'
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { GamesNavbar } from '../../components'
 
 export const Games = () => {
+  let location = useLocation();
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === '/games') {
+      navigate("/games/all")
+    }
+  }, [location])
+
   return (
     <div
       style={{

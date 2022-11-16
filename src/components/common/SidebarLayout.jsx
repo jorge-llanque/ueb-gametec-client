@@ -41,7 +41,7 @@ export const SidebarLayout = () => {
           color: "#fff",
           border: "none",
         }}
-        defaultSelectedKeys={[`${SIDEBAR_TABS_CONFIG[0].key}`]}
+        //defaultSelectedKeys={[`${SIDEBAR_TABS_CONFIG[0].key}`]}
         items={SIDEBAR_TABS_CONFIG}
         onClick={handleNavigation}
       />

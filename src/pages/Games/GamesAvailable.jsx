@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { EditOutlined, EllipsisOutlined, FolderOpenOutlined, PlayCircleOutlined, SettingOutlined } from '@ant-design/icons';
 import { GamesGrid } from '../../components'
-import { Button } from 'antd';
+import { Button, Modal } from 'antd';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
+import ReactPlayer from 'react-player';
+import { gamesService } from '../../services';
 
 const images = [
   {
@@ -79,8 +81,15 @@ const images = [
 
 export const GamesAvailable = () => {
   const [options, setOptions] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [games, setGames] = useState(null);
   const navigate = useNavigate();
   const { gameId } = useParams();
+  const [loading, setLoading] = useState(true)
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
 
   const shortcuts = [
     <Button
@@ -89,6 +98,7 @@ export const GamesAvailable = () => {
       size="small"
       shape="round"
       type="text"
+      onClick={showModal}
     >
       Tutorial
     </Button>,
@@ -106,7 +116,59 @@ export const GamesAvailable = () => {
 
   useEffect(() => {
     setOptions(shortcuts);
+    getAvailableGames();
   }, [])
+
+  const getAvailableGames = () => {
+    setLoading(true)
+    gamesService.getAvailableGames()
+      .then(({ data }) => {
+        console.log('aaa', data)
+        const formated = data.map((data) => {
+          return {
+            ...data,
+            img: {
+              url: data.game.multimedia[0].routeUrl,
+              alt: `Imagen de ${data.game.title}`,
+              style: {
+                height: 180,
+                objectFit: 'cover',
+              }
+            },
+            title: data.game.title,
+            details: [
+              <Button
+                icon={<PlayCircleOutlined />}
+                key='1'
+                size="small"
+                shape="round"
+                type="text"
+                onClick={showModal}
+              >
+                Tutorial
+              </Button>,
+              <Button
+                icon={<FolderOpenOutlined />}
+                key='2'
+                size="small"
+                shape="round"
+                type="text"
+                onClick={() => navigate(`${data.game.id}/details`)}
+              >
+                Ver Detalles
+              </Button>
+            ]
+          }
+        })
+        setGames(formated);
+        setLoading(false)
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false)
+      });
+  }
+
 
   return (
     <>
@@ -114,7 +176,30 @@ export const GamesAvailable = () => {
         gameId ? (
           <Outlet />)
           : (
-            <GamesGrid gallery={images} details={options} />
+            <>
+              {
+                loading ? (
+                  <div>Cargando...</div>
+                ) : (
+                  <GamesGrid gallery={games} details={options} />
+                )
+              }
+
+              <Modal
+                onCancel={() => setIsModalOpen(false)}
+                width={920}
+                closable={false}
+                centered
+                title="Basic Modal" open={isModalOpen}>
+                <ReactPlayer
+                  url="https://player.vimeo.com/video/203233231?h=ce378dbc53"
+                  controls={true}
+                  width="100%"
+                  height="100%"
+                />
+              </Modal>
+
+            </>
           )
       }
     </>

@@ -17,3 +17,9 @@ export { Schedules } from './Schedules/Schedules';
 
 // Errors
 export { DefaultError } from './Errors/DefaultError';
+
+// Login
+export { Login } from './Login/Login';
+
+// Default
+export { DefaultView } from './DefaultView/DefaultView';

@@ -1,8 +1,8 @@
-import {useEffect} from 'react'
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Layout as Template } from "antd"
 import {Header} from './Header';
 import SidebarLayout from "./SidebarLayout";
+import { Authorize } from '../../core';
 const { Content, Footer } = Template
 
 /**
@@ -10,11 +10,9 @@ const { Content, Footer } = Template
  * @returns Layout component.
  */
 export const Layout = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate('/games/all');
-  },[])
+
   return (
+    <Authorize screenName='test'>
     <Template className='layout'>
       <Header/>
       <Template
@@ -42,6 +40,7 @@ export const Layout = () => {
         Jorge LLanque ©2022 Created by Jorge LLanque
       </Footer>
     </Template>
+    </Authorize>
   )
 }
 
