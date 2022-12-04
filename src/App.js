@@ -1,6 +1,7 @@
 import "./App.less"
-import AppRoutes from './AppRoutes';
+import "./App.scss"
+import AppRoutes from "./AppRoutes"
 
-export const App = () => <AppRoutes/>
+export const App = () => <AppRoutes />
 
 export default App

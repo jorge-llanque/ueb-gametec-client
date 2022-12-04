@@ -33,7 +33,7 @@ export const Games = () => {
         <GamesNavbar />
         <div
           className='site-layout-content'
-          style={{ overflow: 'auto', height: 'inherit' }}
+          style={{ overflow: 'auto', height: 'inherit', textAlign: 'center' }}
         >
           <Outlet />
         </div>

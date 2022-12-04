@@ -1,23 +1,14 @@
-import { Button, Checkbox, Form, Input } from 'antd'
-import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { loginService } from '../../services';
+
+import { Button, Form, Input, Radio } from 'antd'
+import useAuth from '../../utils/hooks/useAuth';
 
 export const LoginForm = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const validationMessages = {
     required: "El campo '${name}' es requerido",
-  };
-
-  const onFinish = (values) => {
-    loginService.login({ username: values.username, password: values.password })
-      .then((response) => {
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   return (
@@ -26,7 +17,7 @@ export const LoginForm = () => {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
+      onFinish={login}
       onFinishFailed={() => { }}
       autoComplete="off"
       layout='vertical'
@@ -49,15 +40,7 @@ export const LoginForm = () => {
         <Input.Password placeholder='Ingresar Contraseña' />
       </Form.Item>
 
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-      >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-
-      <Form.Item
-      >
+      <Form.Item>
         <Button
           type="primary"
           htmlType="submit"

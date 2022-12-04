@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Layout, Menu } from 'antd';
 import { TOP_TABS_CONFIG } from '../../configs';
+import useAuth from '../../utils/hooks/useAuth';
 
 const { Header: HeaderAntd } = Layout;
 
@@ -10,6 +11,7 @@ const { Header: HeaderAntd } = Layout;
  */
 export const Header = () => {
   const [topTabs, setTopTabs] = useState([])
+  const {logout} = useAuth();
 
   useEffect(() => {
     // Validate permissions by role is pending.
@@ -22,8 +24,7 @@ export const Header = () => {
         key: 'logout',
         label: 'Cerrar Sesión',
         onClick: () => {
-          localStorage.removeItem('token')
-          window.location.reload()
+          logout();
         }
       }
     ])

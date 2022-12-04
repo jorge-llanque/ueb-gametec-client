@@ -1,8 +1,7 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom"
 import { Layout as Template } from "antd"
-import {Header} from './Header';
-import SidebarLayout from "./SidebarLayout";
-import { Authorize } from '../../core';
+import { Header } from "./Header"
+import SidebarLayout from "./SidebarLayout"
 const { Content, Footer } = Template
 
 /**
@@ -10,11 +9,10 @@ const { Content, Footer } = Template
  * @returns Layout component.
  */
 export const Layout = () => {
-
   return (
-    <Authorize screenName='test'>
+    //<Authorize screenName='test'>
     <Template className='layout'>
-      <Header/>
+      <Header />
       <Template
         style={{
           padding: "0 20px",
@@ -22,13 +20,10 @@ export const Layout = () => {
           gap: "10px",
         }}
       >
-        <SidebarLayout/>
+        <SidebarLayout />
         <Content>
-          <div 
-            className='site-layout-content'
-            style={{overflow: 'auto', height: '100%'}}
-            >
-            <Outlet/>
+          <div className='site-layout-content' style={{ overflow: "auto", height: "100%" }}>
+            <Outlet />
           </div>
         </Content>
       </Template>
@@ -40,7 +35,7 @@ export const Layout = () => {
         Jorge LLanque ©2022 Created by Jorge LLanque
       </Footer>
     </Template>
-    </Authorize>
+    //</Authorize>
   )
 }
 

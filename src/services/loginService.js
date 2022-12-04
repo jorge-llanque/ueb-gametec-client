@@ -7,7 +7,6 @@ import { axiosWithAuth } from "../utils"
 export const loginService = {
   login: async (params) => {
     const {data} = await axiosWithAuth().post(`${ROUTES_URL.API_URL_LOGIN}/Login`, params);
-    localStorage.setItem('token', data.token);
     return data
   },
 }

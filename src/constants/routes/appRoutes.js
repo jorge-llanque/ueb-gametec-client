@@ -3,7 +3,8 @@
  */
 export const APP_ROUTES = {
   HOME: '/',
-  
+  STUDENTS: '/students/home',
+  TEACHERS: '/teachers/home',
   GAMES: 'games',
   GAMES_ALL: 'all',
   GAMES_AVAILABLE: 'available',
@@ -12,6 +13,7 @@ export const APP_ROUTES = {
 
   PARTICIPANTS: 'participants',
   PARTICIPANTS_GROUP_NEW: '/participants/group/new',
+  PARTICIPANTS_LIST: '/participants/list',
   SCHEDULING:'scheduling',
   CONTROLLERS: 'controllers',
   LOGIN: 'login',

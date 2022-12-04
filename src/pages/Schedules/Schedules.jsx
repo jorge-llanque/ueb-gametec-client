@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Badge, Button, Modal, Table } from 'antd'
+import { Badge, Button, Modal, Space, Table } from 'antd'
 import { CreateSchedule } from '../../components'
 
 export const Schedules = () => {
@@ -9,11 +9,12 @@ export const Schedules = () => {
     <>
       <Button type='primary' onClick={() => setOpenModal(true)}>Programar Rally</Button>
       <h1>Indicadores</h1>
-      <Badge status="success" text="En Progreso" />
-      <Badge status="warning" text="En Espera" />
-      <Badge status="error" text="Vencido" />
+      <div style={{backgroundColor: "red"}}>
+        <Badge status="success" text="En Progreso" />
+        <Badge status="warning" text="En Espera" />
+        <Badge status="error" text="Vencido" />
+      </div>
       <h1>Programaciones</h1>
-
       <Table
         columns={[
           {

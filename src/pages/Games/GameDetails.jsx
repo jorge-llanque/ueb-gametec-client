@@ -36,7 +36,7 @@ export const GameDetails = () => {
             />
             <Row>
               <Col span={24}>
-                <Typography.Title level={3}>{gameDetails.title}</Typography.Title>
+                <Typography.Title level={3} style={{ textAlign: 'left' }}>{gameDetails.title}</Typography.Title>
               </Col>
             </Row>
             <Row>
@@ -53,21 +53,21 @@ export const GameDetails = () => {
                 <ReactPlayer
                   url={gameDetails.tutorial}
                   controls={true}
-                  width="100%"
-                  height="20em"
-                  light={true}
+                  //width="100%"
+                  //height="20em"
+                  //light={true}
                 />
               </Col>
             </Row>
             <Row>
               <Col span={24}>
-                <Typography.Title level={5}>Descripcion del Juego</Typography.Title>
-                <Typography.Paragraph>{gameDetails.description}</Typography.Paragraph>
+                <Typography.Title level={5} style={{ textAlign: 'left' }}>Descripcion del Juego</Typography.Title>
+                <Typography.Paragraph style={{ textAlign: 'left' }}>{gameDetails.description}</Typography.Paragraph>
                 {/* <Typography.Paragraph>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga reprehenderit voluptas dicta recusandae fugit animi inventore amet at earum! Voluptas adipisci provident quisquam reprehenderit est accusamus earum autem, deserunt sint. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga reprehenderit voluptas dicta recusandae fugit animi inventore amet at earum! Voluptas adipisci provident quisquam reprehenderit est accusamus earum autem, deserunt sint.</Typography.Paragraph>
                 <Typography.Paragraph>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga reprehenderit voluptas dicta recusandae fugit animi inventore amet at earum! Voluptas adipisci provident quisquam reprehenderit est accusamus earum autem, deserunt sint. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</Typography.Paragraph> */}
 
-                <Typography.Title level={5}>Instrucciones del Juego</Typography.Title>
-                <ol>
+                <Typography.Title level={5} style={{ textAlign: 'left' }}>Instrucciones del Juego</Typography.Title>
+                <ol style={{ textAlign: 'left' }}>
                   <li>{gameDetails.configurationDetails.instructions}</li>
                 </ol>
               </Col>

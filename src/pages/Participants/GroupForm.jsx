@@ -4,6 +4,7 @@ import { UsergroupAddOutlined } from '@ant-design/icons';
 import { ParticipantList } from '../../components';
 import { useNavigate } from 'react-router-dom';
 import { teamsService } from '../../services';
+import emptyImage from '../../utils/static/empty.svg'
 
 const data = [
   {
@@ -26,7 +27,7 @@ const data = [
 export const GroupForm = () => {
   const _navigate = useNavigate();
   const [openModal, setOpenModal] = useState(false)
-  const [participantList, setParticipantList] = useState(data)
+  const [participantList, setParticipantList] = useState([])
   const [participants, setParticipants] = useState([])
 
   useEffect(() => {
@@ -94,8 +95,9 @@ export const GroupForm = () => {
         </Row>
         <Row gutter={[16, 16]}>
           <Col span={24}>
+
             <List
-              style={{ minHeight: '200px' }}
+              style={{ minHeight: '400px' }}
               pagination={{
                 onChange: (page) => {
                   console.log(page);

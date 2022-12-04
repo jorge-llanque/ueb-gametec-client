@@ -7,6 +7,7 @@ export { GameDetails } from './Games/GameDetails';
 
 // Participants
 export { Participants } from './Participants/Participants';
+export { ParticipantsList } from './Participants/ParticipantsList';
 export { GroupForm } from './Participants/GroupForm';
 
 // Controls

@@ -1,4 +1,4 @@
-import { Badge, Button, Modal, Table } from 'antd'
+import { Badge, Button, Modal, Space, Table } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { CreateSchedule } from '../../components'
 import { tournamentsService } from '../../services'
@@ -42,12 +42,15 @@ export const Toourrnaments = () => {
     <>
       <Button type='primary' onClick={() => setOpenModal(true)}>Programar Rally</Button>
       <h1>Indicadores</h1>
+      <Space>
       <Badge status="success" text="En Progreso" />
       <Badge status="warning" text="En Espera" />
       <Badge status="error" text="Cancelado" />
+      </Space>
       <h1>Programaciones</h1>
 
       <Table
+        size='small'
         columns={[
           {
             title: '',
@@ -119,6 +122,7 @@ export const Toourrnaments = () => {
       />
       <h1>Historial de Programaciones</h1>
       <Table
+        size='small'
         columns={[
           {
             dataIndex: 'estado',

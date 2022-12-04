@@ -1,5 +1,6 @@
 import { ROUTES_URL } from "../constants/routes/routesUrl"
 import { axiosWithAuth } from "../utils"
+import { loadState } from "../utils/helpers/localStorage";
 
 /**
  * Service that allows to manage Games.
@@ -9,7 +10,7 @@ export const gamesService = {
   getAvailableGames: async () =>{
     const response = await axiosWithAuth().get(`${ROUTES_URL.API_URL_GAMES}/GetMyGames`, {
       headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
+        'Authorization': `Bearer ${loadState().access_token}`
       }});
     return response.data
   },
